@@ -14,25 +14,19 @@
  *
  */
 module.exports = ( input, test ) => {
-  var finalAnswer = []
-
   function testMe(testObject) {
-    var testValue;
+    var myAnswer = []
 
     if (typeof testObject === 'string' || testObject instanceof String) {
-      return test(testObject)
+      return (test(testObject)) ? [testObject] : [];
     }
 
     for (var key in testObject) {
-      if (testMe(testObject[key])) {
-        finalAnswer.push(testObject[key])
-      }
+      myAnswer = myAnswer.concat(testMe(testObject[key]))
     }
 
-
+    return myAnswer;
   }
 
-  testMe(input)
-  return finalAnswer;
-
+  return testMe(input)
 };
