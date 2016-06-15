@@ -4,7 +4,7 @@
     "description": "A programming test for Float engineering applicants.",
     "main": "index.js",
     "scripts": {
-        "test": "tape test/**/*.js | tap-spec"
+        "test": "node --harmony ./node_modules/tape/bin/tape test/**/*.js | tap-spec"
     },
     "repository": {
         "type": "git",
